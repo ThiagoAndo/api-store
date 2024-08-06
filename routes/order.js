@@ -5,7 +5,6 @@ const { insertOrder } = require("../actions/orderActions");
 // require("../helpers/routeLock");
 const { checkAuth } = require("../util/auth");
 const { isName, isEmail } = require("../helpers/validate");
-const { isCorret } = require("../helpers/validate");
 
 router.post("/", (req, res) => {
   const id = req.body.id;
