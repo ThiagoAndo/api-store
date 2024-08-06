@@ -73,6 +73,5 @@ router.delete("/", async (req, res) => {
     ret?.changes
       ? res.status(200).json({ message: `Cart deleted` })
       : res.status(404).json({ message: `Not found` });
-    return;
 });
 module.exports = router;

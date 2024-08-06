@@ -5,6 +5,7 @@ const { insertOrder } = require("../actions/orderActions");
 // require("../helpers/routeLock");
 const { checkAuth } = require("../util/auth");
 const { isName, isEmail } = require("../helpers/validate");
+const { isCorret } = require("../helpers/validate");
 
 router.post("/", (req, res) => {
   let bodylen;
@@ -14,6 +15,7 @@ router.post("/", (req, res) => {
     bodylen = 3;
   }
 
+  if (isCorret(bodylen, req.body)) {
     const id = req.body.id;
     const name = req.body.name;
     const email = req.body.email;
@@ -31,13 +33,13 @@ router.post("/", (req, res) => {
     ret.changes > 0
       ? res.status(201).json({ message: "Invoice created" })
       : res.status(500).json({ message: "An error has occurred" });
-    return;
+  }
 });
 router.use(checkAuth);
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   const ret = readAction("orders", "user_id = ?", [id]);
-    res.status(200).json(ret);
+  res.status(200).json(ret);
 });
 
 module.exports = router;

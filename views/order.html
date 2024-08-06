@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Next Store API Documentation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/doc">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Order Route</h1>
+    <h3 class="margin">Order route features and usage:</h3>
+    <ul>
+      <li>To request a new order the client must have at least one product on their cart.</li>
+      <li>User id must be provided.</li>
+      <li>To request a new order as a guest, a cart must be provided with a product. User id does not need to be
+        provided.</li>
+      <li>Name must be passed as first name and last name only.</li>
+      <li>Email must be a valid email address format.</li>
+      <li>The user will get an email with the purchase details.</li>
+    </ul>
+    <br />
+    <div class="endpoint">
+      <h2 class="get">GET /user order</h2>
+      <p>Returns all orders from a specific user.</p>
+      <div class="example">
+        <p><strong>Example Request:</strong></p>
+        <div class="request">
+          <code><span class="get">GET</span>
+            https://next-store-api-62m2.onrender.com/order/{USER ID}</code>
+        </div>
+        <p><strong>Example Response:</strong></p>
+        <div class="response">
+          <pre><code>[
+        {
+        "invoice_id": 6,
+        "cart_id": "05-07-2024h15:37:29",
+        "user_id": "4jgm2z11gfjlyrfbmsl",
+        "paid_at": "19-07-2024h17:22:18",
+        "total": 259.98
+        }
+        //... more Orders ...
+[
+      </code></pre>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="endpoint">
+      <h2 class="post">POST /new order</h2>
+      <p>Registers a new user's order.</p>
+      <div class="example">
+        <p><strong>Example Request:</strong></p>
+        <div class="request">
+          <code><span class="post">POST</span>
+            https://next-store-api-62m2.onrender.com/order/</code>
+          <br />
+          <br />
+          <p><strong>Request Body:</strong></p>
+          <pre><code>{
+        
+ "id":"4o40o1vlyltmkxk",
+ "name":"Stephen King",
+ "email":"stephenking@lorem.com"
+        
+}</code></pre>
+        </div>
+        <p>
+          <strong>Example Response <span class="get">201</span>:</strong>
+        </p>
+        <div class="response">
+          <pre><code>{ message: "Invoice created" }</code></pre>
+        </div>
+        <strong>Example Response <span class="delete">407</span>:</strong>
+        </p>
+        <div class="response">
+          <pre><code>{ message: "Incomplete Body" }</code></pre>
+          <pre><code>{ message: "An error has occurred"}</code></pre>
+          <pre><code>{ message: "Name is not valid. Make sure to enter first and last name only"}</code></pre>
+          <pre><code>{ message: "Email is not valid"}</code></pre>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="endpoint">
+      <h2 class="post">POST /new order as a use guest</h2>
+      <p>Registers a new user's order.</p>
+      <div class="example">
+        <p><strong>Example Request:</strong></p>
+        <div class="request">
+          <code><span class="post">POST</span>
+            https://next-store-api-62m2.onrender.com/order/</code>
+          <br />
+          <br />
+          <p><strong>Request Body:</strong></p>
+          <pre><code>{
+          "id":"null",
+          "name":"Stephen King",
+          "email":"stephenking@lorem.com",
+          "cart": [
+          {"id":"8",
+           "price":"74.295744",
+           "quantity":1,
+           "totalPrice":"74.295744",
+           "name":"Dior J'adore",
+           "createAt":"05-07-2024h12:52:40"},
+        //... more Products ...
+
+]
+}</code></pre>
+        </div>
+        <p>
+          <strong>Example Response <span class="get">201</span>:</strong>
+        </p>
+        <div class="response">
+          <pre><code>{ message: "Invoice created" }</code></pre>
+        </div>
+        <strong>Example Response <span class="delete">407</span>:</strong>
+        </p>
+        <div class="response">
+          <pre><code>{ message: "Incomplete Body" }</code></pre>
+          <pre><code>{ message: "An error has occurred"}</code></pre>
+          <pre><code>{ message: "Name is not valid. Make sure to enter first and last name only"}</code></pre>
+          <pre><code>{ message: "Email is not valid"}</code></pre>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+</body>
+<footer>Copyright © <a href="# ">Thiago Ando de Freitas</a></footer>
+</div>
+
+</html>

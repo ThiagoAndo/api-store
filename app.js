@@ -5,19 +5,25 @@ const user = require("./routes/user");
 const cart = require("./routes/cart");
 const add = require("./routes/address");
 const order = require("./routes/order");
+const doc = require("./routes/docs");
 const app = express();
 
+app.use(express.static(__dirname + "/public"));
+app.set("view engine", "html");
+app.set("views", __dirname + "/views");
+app.engine("html", require("ejs").renderFile);
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
   next();
 });
 
+app.use("/doc", doc);
 app.use("/products", products);
 app.use("/user", user);
 app.use("/cart", cart);

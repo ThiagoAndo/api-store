@@ -5,7 +5,6 @@ const { hash } = pkg;
 const { newUser, getUser } = require("../actions/userActions");
 const { deleteAction, updateAction, readAction } = require("../CRUD/actions");
 const { checkAuth } = require("../util/auth");
-const { isCorret } = require("../helpers/validate");
 const { isDataOk } = require("../actions/userActions");
 // require("../helpers/routeLock");
 
