@@ -25,7 +25,7 @@ function deleleteCart(option, cart) {
   let ret;
   switch (option) {
     case 0:
-      ret = deleteAction("cart", "user_id=?", [cart]);
+      ret = deleteAction("cart", "user_id=? AND bought=?", [cart, 0]);
       break;
     case 1:
       ret = deleteAction("cart", "item_id = ? AND user_id=?", [
