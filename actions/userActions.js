@@ -30,7 +30,7 @@ async function getUser(user) {
         userRet.token = authToken;
         return userRet;
       } else {
-        error.message = "Wrong Password";
+        error.message = "Wrong password";
         return error;
       }
     }
@@ -74,7 +74,7 @@ function isDataOk(user) {
     error.message = "Email is not valid ";
     return error;
   } else if (user?.password && !isPassword(user?.password)) {
-    error.message = "Password must contain at least eight character";
+    error.message = "Password must contain at least eight characters";
     return error;
   } else {
     return false;

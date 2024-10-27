@@ -15,7 +15,6 @@ function insertOrder(user_id, name, email, cart) {
     const total = thisCart.reduce((sum, cart) => {
       return (sum += +cart.price * (+cart?.qnt || +cart?.quantity));
     }, 0);
-
     const invoice = {
       invoice_id: null,
       cart_id: (thisCart && thisCart[0].creation_at) || null,
@@ -28,9 +27,9 @@ function insertOrder(user_id, name, email, cart) {
       thisRet.changes = 1;
       return thisRet;
     } else {
-      updateAction("cart", "bought = ?", "user_id=? ", [1, user_id]);
       const ret = createAction("orders", invoice);
       ret.changes > 0 ? buildMail(thisCart, name, total, email) : null;
+      updateAction("cart", "bought = ?", "user_id=? ", [1, user_id]);
       return ret;
     }
   } else {

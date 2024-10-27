@@ -9,59 +9,60 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/doc">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <h1>Address Routes</h1>
-    <h3 class="margin">Address route features and usage:</h3>
-    <ul>
-      <li>User id must be provided.</li>
-      <li>A complete JSON contaning all fields and values must be passed to the API.</li>
-    </ul>
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /address</h2>
-      <p>
-        Returns user address.
-      </p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/add/{USER ID}</code>
+  <section id="Address">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item Home">
+              <a class="nav-link" aria-current="page" href='https://next-store-api-62m2.onrender.com/doc'>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Cart" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Address" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Order" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
+            </li>
+          </ul>
         </div>
-        <br />
-        <p><strong>Example Response<span class="get"> 200</span>:</strong></p>
-        <div class="response">
-          <pre><code>[
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Address Routes</h1>
+      <h3 class="margin">Address route features and usage:</h3>
+      <ul>
+        <li>User id must be provided.</li>
+        <li>A complete JSON contaning all fields and values must be passed to the API.</li>
+      </ul>
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /address</h2>
+        <p>
+          Returns user address.
+        </p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
+            https://next-store-api-62m2.onrender.com/add/{USER ID}</code>
+          </div>
+          <br />
+          <p><strong>Example response<span class="get"> 200</span>:</strong></p>
+          <div class="response">
+            <pre><code>[
         {
         "id": "4jgm2z11gfjlyrfbmsl",
         "line_one": "356, ashgrove",
@@ -70,88 +71,97 @@
         "constry_state": "Dublin"
         }
 ]</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">404</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "There is no user with id: XXXX"}</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "There is no user with id: XXXX"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="post">POST /address</h2>
-      <p>Register an address of a user.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="post">POST</span> https://next-store-api-62m2.onrender.com/add</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="post">POST /address</h2>
+        <p>Register an address of a user.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="post">POST</span> https://next-store-api-62m2.onrender.com/add</code>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
         "id": "4jgm2z11gfjlyrfbmsl",
         "line_one":"356, ashgrove",
         "line_two":"castleknock",
         "town_city":"dublin 24",
         "constry_state":"Dublin"
         }</code></pre>
-        </div>
-        <br />
-        <p><strong>Example Response <span class="get">201</span>:</strong></p>
-        <div class="response">
-          <pre><code>{message: "Address created successufuly"}</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">404</span>:</strong>
-        <div class="response">
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "There is no user with id: XXXX"}</code></pre>
+          </div>
+          <br />
+          <p><strong>Example response <span class="get">201</span>:</strong></p>
+          <div class="response">
+            <pre><code>{message: "Address created successufuly"}</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          <div class="response">
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ message: "There is no user with id: XXXX"}</code></pre>
+            <pre><code>{ message: "There is no user with id: XXXX"}</code></pre>
+            <pre><code>{ message: "Could not update address of user with id: XXXX"}</code></pre>
+
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="patch">PATCH /user address</h2>
-      <p>Update user address. </p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="patch">PATCH</span> https://next-store-api-62m2.onrender.com/add</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="patch">PATCH /user address</h2>
+        <p>Update user address. </p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="patch">PATCH</span> https://next-store-api-62m2.onrender.com/add</code>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
         "id": "4o40o1vlyltmkxk",
         "line_one": "221 baiepau",
         "line_two": "Vl. norma",
         "town_city": "São Paulo",
         "constry_state": "SP"
 }</code></pre>
-        </div>
-        <br />
-        <p><strong>Example Response <span class="get">201</span>:</strong></p>
-        <div class="response">
-          <pre><code> { message: "Updated user detail with id XXXX"}</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">404</span>:</strong>
-        <div class="response">
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "There is no user with id XXXX"}</code></pre>
+          </div>
+          <br />
+          <p><strong>Example response <span class="get">201</span>:</strong></p>
+          <div class="response">
+            <pre><code> { message: "Updated user detail with id XXXX"}</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          <div class="response">
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ message: "There is no user with id XXXX"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
 </body>
-<footer>Copyright © <a href="# ">Thiago Ando de Freitas</a></footer>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a
+        href="https://thiago-freitas-portfolio.vercel.app/">Thiago Ando de Freitas</a></span>
+  </footer>
 </div>
 
 </html>

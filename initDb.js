@@ -2,6 +2,16 @@ const sql = require("better-sqlite3");
 const db = sql("e-comerce.db");
 const { products } = require("./data/productsData");
 const { insertP } = require("./actions/productActions");
+
+function dropTables(){
+    db.prepare(`DROP TABLE orders`).run();
+    db.prepare(`DROP TABLE cart`).run();
+    db.prepare(`DROP TABLE userAddress`).run();
+    db.prepare(`DROP TABLE users`).run();
+    db.prepare(`DROP TABLE images`).run();
+    db.prepare(`DROP TABLE products`).run();
+}
+
 function initDB() {
   db.prepare(
     `CREATE TABLE IF NOT EXISTS products (
@@ -85,8 +95,7 @@ function initDB() {
       )
 `
   ).run();
-
-  insertP(products);
 }
-
 // initDB()
+exports.dropTables = dropTables;
+exports.initDB = initDB;

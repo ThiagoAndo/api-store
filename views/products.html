@@ -9,59 +9,59 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-              href="https://next-store-api-62m2.onrender.com/product">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/prt">Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <h1>Product Routes</h1>
-    <h3 class="margin">Products route features and usage:</h3>
-    <ul>
-      <li>User submitted Product are erased on a regular basis.</li>
-      <li>Submitted Product must contain at least two images references.</li>
-      <li>Each product must contain an unique ID and TITLE.</li>
-      <li>A complete JSON contaning all fields and values must be passed to the API.</li>
-    </ul>
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /all products</h2>
-      <p>Returns all products.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/products</code>
+  <section id="Product">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item Home">
+              <a class="nav-link" aria-current="page" href='https://next-store-api-62m2.onrender.com/doc'>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Cart" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Address" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Order" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
+            </li>
+          </ul>
         </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>{
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Product Routes</h1>
+      <h3 class="margin">Products route features and usage:</h3>
+      <ul>
+        <li>User submitted Product are erased on a regular basis.</li>
+        <li>Submitted Product must contain at least two images references.</li>
+        <li>Each product must contain an unique ID and TITLE.</li>
+        <li>A complete JSON contaning all fields and values must be passed to the API.</li>
+      </ul>
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /all products</h2>
+        <p>Returns all products.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
+            https://next-store-api-62m2.onrender.com/products</code>
+          </div>
+          <p><strong>Example response:</strong></p>
+          <div class="response">
+            <pre><code>{
     "products": [
         {
             "id": "6",
@@ -74,66 +74,82 @@
             "brand": "Calvin Klein",
             "category": "fragrances",
             "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
+        }
+     // ... More products ...
+
+    ],
+    "images": [
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png"
         },
-       // ... more products ...
-               ]
- }
-      </code></pre>
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+        },
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png"
+        }
+     // ... More images ...
+    ]
+}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /product categories</h2>
-      <p>Returns all categories.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /product categories</h2>
+        <p>Returns all categories.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
             https://next-store-api-62m2.onrender.com/products/categories</code>
-        </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>[
+          </div>
+          <p><strong>Example response:</strong></p>
+          <div class="response">
+            <pre><code>[
     {
         "category": "fragrances"
     },
     {
         "category": "furniture"
     },
-     // ... more categories ...
+     // ... More categories ...
        
 ]</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /filter</h2>
-      <p>
-        Returns products filtered.
-      </p>
-      <p><strong>Query Parameters:</strong></p>
-      <ul>
-        <li class="li_end">
-          <code class="get">category</code>: Product category from
-          <code class="get">products/categories</code>
-          endpoint.
-        </li>
-      </ul>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /filter</h2>
+        <p>
+          Returns products filtered.
+        </p>
+        <p><strong>Query Parameters:</strong></p>
+        <ul>
+          <li class="li_end">
+            <code class="get">category</code>: Product category from
+            <code class="get">products/categories</code>
+            endpoint.
+          </li>
+        </ul>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
             https://next-store-api-62m2.onrender.com/products/bycategorie?category=mens-shoes&category=mens-watches</code>
-        </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>[
+          </div>
+          <p><strong>Example response:</strong></p>
+          <div class="response">
+            <pre><code>{
+    "products": [
         {
             "id": "6",
             "title": "Calvin Klein CK One",
@@ -145,27 +161,101 @@
             "brand": "Calvin Klein",
             "category": "fragrances",
             "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
+        }
+     // ... More products ...
+
+    ],
+    "images": [
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png"
         },
-        // ... more products ...
-]</code></pre>
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+        },
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png"
+        }
+     // ... More images ...
+    ]
+}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="post">POST/product</h2>
-      <p>Create a new product.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="post">POST</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /product by its id</h2>
+        <p>Returns chosen product.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
+            https://next-store-api-62m2.onrender.com/products/byid/6</code>
+          </div>
+          <p><strong>Example response:</strong></p>
+          <div class="response">
+            <pre><code>{
+    "products": [
+        {
+            "id": "6",
+            "title": "Calvin Klein CK One",
+            "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+            "price": 49.99,
+            "discountPercentage": 0.32,
+            "rating": 4.85,
+            "stock": 17,
+            "brand": "Calvin Klein",
+            "category": "fragrances",
+            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
+        }
+     // ... More products ...
+
+    ],
+    "images": [
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png"
+        },
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png"
+        },
+        {
+            "item_id": "6",
+            "image": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png"
+        }
+     // ... More images ...
+    ]
+}</code></pre>
+          </div>
+          <br />
+          <p>
+            <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Could not find product with id:XXX"}</code></pre>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="post">POST/product</h2>
+        <p>Create a new product.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="post">POST</span>
             https://next-store-api-62m2.onrender.com/products</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
 "id":"234",
 "title":"Super UNIQUE iPhone 334 ",
 "description":"An apple mobile of the future",
@@ -184,55 +274,63 @@
     "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
     ]
 }</code></pre>
-        </div>
-        <p>
+          </div>
+          <p>
+            <br />
+            <strong>Example response <span class="get">201</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Product created" }</code></pre>
+          </div>
           <br />
-          <strong>Example Response <span class="get">201</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Product created" }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">407</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "UNIQUE constraint failed: products.id"}</code></pre>
-          <pre><code>{ message: "UNIQUE constraint failed: products.title"}</code></pre>
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-        </div>
-      </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="delete">DELETE /product</h2>
-      <p>Delete a product.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="delete">DELETE</span>
-            https://next-store-api-62m2.onrender.com/products/{PRODUCT ID}</code>
-        </div>
-        <br />
-        <p>Example Response <span class="get">200</span>:</p>
-        <div class="response">
-          <pre><code>{ message: "Deleted product with id XXXX" }</code></pre>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "UNIQUE constraint failed: products.id"}</code></pre>
+            <pre><code>{ message: "UNIQUE constraint failed: products.title"}</code></pre>
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+          </div>
         </div>
       </div>
       <br />
-      <p>Example Response <span class="delete">404</span>:</p>
-      <div class="response">
-        <pre><code>{ message: "Could not delete product with id XXXX"}</code></pre>
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="delete">DELETE /product</h2>
+        <p>Delete a product.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <!-- <div class="request">
+            <code><span class="delete">DELETE</span>
+            https://next-store-api-62m2.onrender.com/products/{PRODUCT ID}</code>
+            
+          </div> -->
+          <p><strong>Request body:</strong></p>
+          <pre><code>{ id:"XXX"}</code></pre>
+          <br />
+          <p>Example response <span class="get">200</span>:</p>
+          <div class="response">
+            <pre><code>{ message: "Deleted product with id XXXX" }</code></pre>
+          </div>
+        </div>
+        <br />
+        <strong>Example response <span class="delete">404 / 500</span>:</strong>
+        <div class="response">
+          <pre><code>{ message: "Could not delete product with id XXXX"}</code></pre>
+        </div>
       </div>
     </div>
-  </div>
-
+  </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
 </body>
-<footer>Copyright © <a href="# ">Thiago Ando de Freitas</a></footer>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a
+        href="https://thiago-freitas-portfolio.vercel.app/">Thiago Ando de Freitas</a></span>
+  </footer>
 </div>
 
 </html>

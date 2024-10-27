@@ -23,7 +23,7 @@ function isPasswordValid(password) {
 }
 function isCorret(exp, obj) {
   const values = Object.values(obj).map((val) => {
-    if (val || val === 0) {
+    if (val || val === 0 || val?.length > 2) {
       return true;
     } else {
       return false;

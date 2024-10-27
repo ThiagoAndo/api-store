@@ -9,66 +9,69 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/doc">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <h1>Cart Routes</h1>
-    <h3 class="margin">Cart route features and usage:</h3>
-    <ul>
-      <li><strong><code style="color: white;">{bought:0}</code></strong>, zero means cart that have not been purchased.
-      </li>
-      <li><strong><code style="color: white;">{bought:1}</code></strong>, one means cart that have been purchased.</li>
-      <li>There will be only one cart <strong><code style="color: white;">{bought:0}</code></strong> for client.</li>
-      <li>There is no restriction for the amount of cart <strong><code style="color: white;">{bought:1}</code></strong>
-        for client.</li>
-      <li>User id and date<strong><code style="color: white;">{creation_at: 05-07-2024h15:37:29}</code></strong> must be
-        provided.</li>
-      <li>A complete JSON contaning all fields and values must be passed to the API.</li>
-    </ul>
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /cart</h2>
-      <p>
-        Returns user's cart.
-      </p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/cart/{USER ID}</code>
+  <section id="Cart">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item Home">
+              <a class="nav-link" aria-current="page" href='https://next-store-api-62m2.onrender.com/doc'>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Product" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Cart" href="https://next-store-api-62m2.onrender.com/doc/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Address" href="https://next-store-api-62m2.onrender.com/doc/address">Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Order" href="https://next-store-api-62m2.onrender.com/doc/order">Order</a>
+            </li>
+          </ul>
         </div>
-        <br />
-        <p><strong>Example Response<span class="get"> 200</span>:</strong></p>
-        <div class="response">
-          <pre><code>{
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Cart Routes</h1>
+      <h3 class="margin">Cart route features and usage:</h3>
+      <ul>
+        <li><strong><code style="color: white;">{bought:0}</code></strong>, zero means cart that have not been
+          purchased.
+        </li>
+        <li><strong><code style="color: white;">{bought:1}</code></strong>, one means cart that have been purchased.
+        </li>
+        <li>There will be only one cart <strong><code style="color: white;">{bought:0}</code></strong> for client.</li>
+        <li>There is no restriction for the amount of cart <strong><code
+              style="color: white;">{bought:1}</code></strong>
+          for client.</li>
+        <li>User id must be provided.</li>
+        <li>A complete JSON contaning all fields and values must be passed to the API.</li>
+      </ul>
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /cart</h2>
+        <p>
+          Returns user's cart.
+        </p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
+            https://next-store-api-62m2.onrender.com/cart/{USER ID}</code>
+          </div>
+          <br />
+          <p><strong>Example response<span class="get"> 200</span>:</strong></p>
+          <div class="response">
+            <pre><code>{
         "items": [
         {
         "user_id": "4jgm2z1nr3lylryo11",
@@ -82,42 +85,42 @@
           // ... more items ...
         ]
         }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">404</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{message: "Not found"}</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{message: "Not found"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="get">GET /cart purchased</h2>
-      <p>
-        Returns carts that have been purchased by the user.
-      </p>
-      <p><strong>Query Parameters:</strong></p>
-      <ul>
-        <li>
-          <code class="get">user_id</code>: User id
-        </li>
-        <li>
-          <code class="get">cart_id</code>: Time that the cart was created <code
-            class="get">{creation_at:05-07-2024h15:37:29}</code>
-        </li>
-      </ul>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="get">GET</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="get">GET /cart purchased</h2>
+        <p>
+          Returns carts that have been purchased by the user.
+        </p>
+        <p><strong>Query Parameters:</strong></p>
+        <ul>
+          <li>
+            <code class="get">user_id</code>: User id
+          </li>
+          <li>
+            <code class="get">cart_id</code>: Time that the cart was created <code
+              class="get">{creation_at:05-07-2024h15:37:29}</code>
+          </li>
+        </ul>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="get">GET</span>
               https://next-store-api-62m2.onrender.com/cart/purchased/params?user_id=4jgm2z1bxslyle2o5n&cart_id=05-07-2024h15:37:29</code>
-        </div>
-        <p><strong>Example Response <span class="get">200</span>:</strong></p>
-        <div class="response">
-          <pre><code>{
+          </div>
+          <p><strong>Example response <span class="get">200</span>:</strong></p>
+          <div class="response">
+            <pre><code>{
         "items": [
         {
         "user_id": "4jgm2z1nr3lylryo11",
@@ -131,134 +134,173 @@
         // ... more items ...
                  ]
   }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">404</span>:</strong>
-        <div class="response">
-          <pre><code>{ message: "Not found" }</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          <div class="response">
+            <pre><code>{ message: "Not found" }</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="post">POST /cart </h2>
-      <p>Create a new cart.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="post">POST</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="post">POST /cart </h2>
+        <p>Create a new cart.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="post">POST</span>
               https://next-store-api-62m2.onrender.com/cart</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
-        "id":"4jgm2z11gfjlyrfbmsl", <span class="delete">//=> THIS IS THE USER ID </span>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
+        "user_id":"4jgm2z11gfjlyrfbmsl", <span class="delete">//=> THIS IS THE USER ID </span>
         "item":{
         "id": "8",
         "quantity": "2",
         "createAt": "05-07-2024h15:37:29", //This is the ID of the cart in the database
         "price":"129.99",
-        "name":"Chanel Coco Noir Eau De"
-        }
+        "name":"Chanel Coco Noir Eau De" }
 }</code></pre>
-        </div>
-        <p>
+          </div>
+          <p>
+            <br />
+            <strong>Example response <span class="get">200</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Cart created successufuly" }</code></pre>
+          </div>
           <br />
-          <strong>Example Response <span class="get">200</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Cart created successufuly" }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">407</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "There is no pruduct with id: xxxx or User with id: xxxx"}</code></pre>
-          <pre><code>{ message: "UNIQUE constraint failed: products.title"}</code></pre>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ "message": "There is already a product with id: 82 in the cart" }</code></pre>
+            <pre><code>{ message: "There is no pruduct with id: xxxx or User with id: xxxx"}</code></pre>
+            <pre><code>{ message: "UNIQUE constraint failed: products.title"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="delete">DELETE /cart </h2>
-      <p>Delete cart.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="delete">DELETE</span>
-                https://next-store-api-62m2.onrender.com/cart</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
-"cart":"4jgm2z1bxslyle2o5n", <span class="delete">//=> THIS IS THE USER ID. </span>
-"op":0 <span class="delete">                     //=> THE OPTION 0 DELETE THE CART.</span>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="patch">PATCH /cart item quantity</h2>
+        <p>Update user data. </p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="patch">PATCH</span> https://next-store-api-62m2.onrender.com/cart</code>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
+        cart:{
+            "id": "4o40o1vlyltmkxk",
+            "item_id": "9",
+            "quantity": 454
+            }
 }</code></pre>
-        </div>
-        <p>
+          </div>
           <br />
-          <strong>Example Response <span class="get">200</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Cart deleted" }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">407</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "Not found"}</code></pre>
+          <p><strong>Example response <span class="get">201</span>:</strong></p>
+          <div class="response">
+            <pre><code> { message: "Updated user detail with id XXXX"}</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          <div class="response">
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ "message": "There is already a product with id: 82 in the cart" }</code></pre>
+            <pre><code>{ message: "Not found"}</code></pre>
+            <pre><code>{ message: "Updated item with id XXXX"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="endpoint">
-      <h2 class="delete">DELETE /product from cart</h2>
-      <p>Delete product from cart.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code><span class="delete">DELETE</span>
-                  https://next-store-api-62m2.onrender.com/cart</code>
-          <br />
-          <br />
-          <p><strong>Request Body:</strong></p>
-          <pre><code>{
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="delete">DELETE /item from cart</h2>
+        <p>Delete product from cart.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="delete">DELETE</span>
+                  https://next-store-api-62m2.onrender.com/cart/item</code>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{
   "cart":{
   "user_id":"4jgm2z1bxslyle2o5n",
   "item_id":"9"
   },
-  "op":1 <span class="delete">//=> THE OPTION 1 DELETE A PRODUCT FROM THE CART.</span>
 }</code></pre>
-        </div>
-        <p>
+          </div>
+          <p>
+            <br />
+            <strong>Example response <span class="get">201</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Item deleted" }</code></pre>
+          </div>
           <br />
-          <strong>Example Response <span class="get">201</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Cart deleted" }</code></pre>
-        </div>
-        <br />
-        <strong>Example Response <span class="delete">407</span>:</strong>
-        </p>
-        <div class="response">
-          <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "Not found"}</code></pre>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ message: "Not found"}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+      <br />
+      <br />
+      <br />
+      <div class="endpoint">
+        <h2 class="delete">DELETE /cart </h2>
+        <p>Delete cart.</p>
+        <div class="example">
+          <p><strong>Example request:</strong></p>
+          <div class="request">
+            <code><span class="delete">DELETE</span>
+                            https://next-store-api-62m2.onrender.com/cart</code>
+            <br />
+            <br />
+            <p><strong>Request body:</strong></p>
+            <pre><code>{ "user_id":"4jgm2z1bxslyle2o5n" }</code></pre>
+          </div>
+          <p>
+            <br />
+            <strong>Example response <span class="get">200</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Cart deleted" }</code></pre>
+          </div>
+          <br />
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
+          </p>
+          <div class="response">
+            <pre><code>{ message: "Incomplete Body" }</code></pre>
+            <pre><code>{ message: "Not found"}</code></pre>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
 </body>
-<footer>Copyright © <a href="# ">Thiago Ando de Freitas</a></footer>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a
+        href="https://thiago-freitas-portfolio.vercel.app/">Thiago Ando de Freitas</a></span>
+  </footer>
 </div>
 
 </html>

@@ -48,15 +48,15 @@ function insertProduct(products) {
   }
 }
 
-function deleteData(table) {
-  db.prepare(`DELETE  FROM ${table}`).run();
-}
-function restoreProductTable() {
-  setTimeout(() => {
-    deleteData("images");
-    deleteData("products");
-    insertProduct(products);
-  }, 60 * 60 * 1000);
-}
+// function deleteData(table) {
+//   db.prepare(`DELETE  FROM ${table}`).run();
+// }
+// function restoreProductTable() {
+//   setTimeout(() => {
+//     deleteData("images");
+//     deleteData("products");
+//     insertProduct(products);
+//   }, 60 * 60 * 1000);
+// }
 exports.insertP = insertProduct;
-exports.restore = restoreProductTable;
+// exports.restore = restoreProductTable;

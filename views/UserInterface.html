@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.122.0">
+  <title>Next Store API</title>
+  <link href="/css/userInterface.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Mode button -->
+  <section>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+      </symbol>
+    </svg>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+        aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center mode" data-bs-theme-value="light"
+            aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center mode" data-bs-theme-value="dark"
+            aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- Modal -->
+  <section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-warning" id="exampleModalLongTitle">Authentication</h5>
+            <button type="button" id="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            You need a <span class="text-primary"> token</span> for this action.<br /><br /> You may either retrive an
+            existing user or register a new one.
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <section>
+
+    <div class="modal fade" id="loader" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title text-primary" id="exampleModalLongTitle">Fetching</h2>
+            <button type="button" id="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="spinning"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product-->
+  <section>
+    <div class="text-secondary px-4 pt-5 text-center">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-white title"> User Interface <span class="text-primary">Next Store API </span>
+        </h1>
+        <p class="fs-6 mb-4">Click on the corresponding button to test the API endpoints</p>
+      </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <!-- Product buttons-->
+
+    <div class="text-secondary px-4 pt-5 text-center">
+      <h5 class="display-6 fw-bold text-white title">Product Endpoints</h5>
+      <div class="col-lg-12 mx-auto mt-4">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" id="all" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">A few
+            Products</button>
+          <button type="button" id="category"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">Categories</button>
+          <button type="button" id="byC" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">By
+            categoty</button>
+          <button type="button" id="byI" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">By
+            id</button>
+          <button type="button" id="new"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">New</button>
+          <button type="button" id="delete"
+            class="btn btn-danger btn-sm px-4 me-sm-3 fw-bold pro-btn my-3">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="container col-xl-10 col-xxl-8 px-4 ">
+      <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6 my-5">
+          <!-- Product Form -->
+          <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="GET" id="products">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="b-example-divider"></div>
+  <!-- User-->
+  <section>
+
+    <div class="text-secondary px-4 pt-5 text-center">
+      <h5 class="display-6 fw-bold text-white title">User Endpoints</h5>
+      <div class="col-lg-12 mx-auto mt-4">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" id="get" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold user-btn my-3">Sign
+            in</button>
+          <button type="button" id="new" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold user-btn my-3 ">Sign
+            up</button>
+          <button type="button" id="password"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold user-btn my-3 ">Change
+            password</button>
+          <button type="button" id="update"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold user-btn my-3 ">Update
+            user</button>
+          <button type="button" id="delete" class="btn btn-danger btn-sm px-4 me-sm-3 fw-bold user-btn my-3">Delete
+            user</button>
+        </div>
+      </div>
+    </div>
+    <div class="container col-xl-10 col-xxl-8 px-4 ">
+      <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6 my-5">
+          <!-- User Form -->
+          <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="GET" id="user">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="b-example-divider"></div>
+
+
+  <!-- Address-->
+  <section>
+
+    <div class="text-secondary px-4 pt-5 text-center">
+      <h5 class="display-6 fw-bold text-white title">Address Endpoints</h5>
+      <div class="col-lg-12 mx-auto mt-4">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" id="regAdd"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold add-btn my-3">Register
+            address</button>
+          <button type="button" id="updAdd" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold add-btn my-3">Update
+            address</button>
+          <button type="button" id="getAdd" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold add-btn my-3">Get
+            add</button>
+        </div>
+      </div>
+      <div class="container col-xl-10 col-xxl-8 px-4 ">
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-md-10 mx-auto col-lg-6 my-5">
+            <!-- Address Form -->
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="GET" id="add">
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="b-example-divider"></div>
+
+
+
+  <!-- Cart-->
+  <section>
+
+    <div class="text-secondary px-4 pt-5 text-center">
+      <h5 class="display-6 fw-bold text-white title">Cart Endpoints</h5>
+      <div class="col-lg-12 mx-auto mt-4">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" id="add" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold cart-btn my-3 ">Add
+            product</button>
+          <button type="button" id="notP" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold cart-btn my-3">Get
+            cart</button>
+          <button type="button" id="purchased"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold cart-btn my-3 ">Get
+            purchased</button>
+          <button type="button" id="update"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold cart-btn my-3 ">Update
+            product quantity</button>
+          <button type="button" id="delete" class="btn btn-danger btn-sm px-4 me-sm-3 fw-bold cart-btn my-3">Delete
+            cart</button>
+          <button type="button" id="delItem" class="btn btn-danger btn-sm px-4 me-sm-3 fw-bold cart-btn my-3">Delete
+            item</button>
+        </div>
+      </div>
+    </div>
+    <div class="container col-xl-10 col-xxl-8 px-4 ">
+      <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6 my-5">
+          <!-- Cart Form -->
+          <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="GET" id="cart">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="b-example-divider"></div>
+  <!-- Order-->
+  <section>
+    <div class="text-secondary px-4 pt-5 text-center">
+      <h5 class="display-6 fw-bold text-white title">Order Endpoints</h5>
+      <div class="col-lg-12 mx-auto mt-4">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" id="complete"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold order-btn my-3">Complete order</button>
+          <button type="button" id="get" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold order-btn my-3 ">Get
+            order</button>
+          <button type="button" id="guest"
+            class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold order-btn my-3 ">Order
+            as guest</button>
+        </div>
+      </div>
+    </div>
+    <div class="container col-xl-10 col-xxl-8 px-4 ">
+      <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6 my-5">
+          <!-- Order Form -->
+          <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" value="order" method="GET" id="order">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="b-example-divider"></div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="/js/UserInterface.js" type="module"></script>
+</body>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a
+        href="https://thiago-freitas-portfolio.vercel.app/">Thiago Ando de Freitas</a></span>
+  </footer>
+</div>
+
+</html>

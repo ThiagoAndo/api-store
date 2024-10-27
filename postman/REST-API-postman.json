@@ -1,714 +1,883 @@
 {
-  "info": {
-    "_postman_id": "729ade8e-ef02-4eb9-8a1a-ec0b35051405",
-    "name": "Store-API-Solo",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "28441837"
-  },
-  "item": [
-    {
-      "name": "CART",
-      "item": [
-        {
-          "name": "Get cart purchased",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart/purchased/params?user_id=4jgm2z1bxslyle2o5n&cart_id=05-07-2024h15:37:29",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart", "purchased", "params"],
-              "query": [
-                {
-                  "key": "user_id",
-                  "value": "4jgm2z1bxslyle2o5n"
-                },
-                {
-                  "key": "cart_id",
-                  "value": "05-07-2024h15:37:29"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get cart not purchased",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NDMxNjUsImV4cCI6MTcyMDk0Njc2NX0.5ju20TQvVrv3gqb2Nd1M1RrcHSgi1vpyOooosaQaTsw",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart/4jgm2z1nr3lylryo11",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart", "4jgm2z1nr3lylryo11"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create cart with first item",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\"id\":\"4jgm2z1nr3lylryo11\",\r\n\"item\":{\r\n        \"id\": \"8\",\r\n        \"quantity\": \"2\",\r\n        \"createAt\": \"05-07-2024h15:37:29\", //This is the ID of the cart in the database\r\n        \"price\":\"129.99\",\r\n        \"name\":\"Chanel Coco Noir Eau De\"\r\n    }\r\n}\r\n\r\n// EACH PRODUCT FILL ONE ROW ON THE TABLE <CART>. THEREFORE, FOR EVERY CHOSEN PRODUCT ONE REQUEST IS MADE TO THE <API>. THE SECOND PRODUCT WOULD BE REQUESTED AS FOLLOWS:\r\n\r\n// {\r\n\r\n// \"id\":\"4jgm2z1hr0lwjdor0t\",\r\n\r\n//     {\r\n//         \"id\": \"5\",\r\n//         \"quantity\": \"2\",\r\n//         \"createAt\": \"10-04-2024   14:37:55\",\r\n//         \"price\":\"59\",\r\n//         \"name\":\"iPhone 9\"\r\n//     }\r\n// }\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> There is no pruduct with id: xxxx or User with id: xxxx: This response will be sent if a cart with a product id or a user id that does not contain on the database.\r\n\r\n    //=> Cart created successufuly: This response will be sent when cart is created.\r\n    \r\n    \r\n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Adding second item",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\"id\":\"4jgm2z1nr3lylryo11\",\r\n\r\n\"item\":{\r\n        \"id\": \"9\",\r\n        \"quantity\": \"2\",\r\n        \"createAt\": \"05-07-2024h15:37:29\",\r\n        \"price\":\"49.99\",\r\n        \"name\":\"Calvin Klein CK One\"\r\n    }\r\n}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> There is no pruduct with id: xxxx or User with id: xxxx: This response will be sent if a cart with a product id or a user id that does not contain on the database.\r\n\r\n    //=> Cart created successufuly: This response will be sent when cart is created.\r\n    \r\n    ",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update item quantity",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\r\n\"cart\":{\r\n    \"user_id\":\"4jgm2z1bxslyle2o5n\",\r\n     \"item_id\": \"9\",\r\n     \"qnt\": 454\r\n      \r\n    }\r\n}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> Not found: This response will be sent if product id or user id is not found on the database.\r\n\r\n    //=> Updated item with id XXXX: This response will be sent when cart quantity is updated.\r\n    \r\n    \r\n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete cart",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"cart\":\"4jgm2z1bxslyle2o5n\",//This is hte user ID\n    \"op\":0 // Delete all the products inserted onto the table\n}\n\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Cart deleted: This response will be sent when cart successfuly deleted.\n\n    //=> Not found: This response will be sent if product id or user id is not found on the database.    ",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete item from cart",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"cart\":{\n        \"user_id\":\"4jgm2z1bxslyle2o5n\",\n        \"item_id\":\"9\"\n    },\n    \"op\":1\n}\n\n\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Cart deleted: This response will be sent when a product is successfuly deleted from the cart.\n\n    //=> Not found: This response will be sent if product id or user id is not found on the database.    ",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/cart",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["cart"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "ADDRESS",
-      "item": [
-        {
-          "name": "Register address",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"id\": \"4jgm2z1nr3lylryo11\",\r\n    \"line_one\":\"356, ashgrove\", \r\n    \"line_two\":\"castleknock\",\r\n    \"town_city\":\"dublin 24\", \r\n    \"constry_state\":\"Dublin\"\r\n\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/add",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["add"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get user address",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/add/4jgm2z1nr3lylryo11",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["add", "4jgm2z1nr3lylryo11"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Change user Address",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n        \"id\": \"4jgm2z1nr3lylryo11\",\n        \"line_one\": \"221 baiepau\",\n        \"line_two\": \"Vl. norma\",\n        \"town_city\": \"São Paulo\",\n        \"constry_state\": \"SP\"\n    }",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/add",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["add"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "ORDER",
-      "item": [
-        {
-          "name": "Get Order",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NjAxNDEsImV4cCI6MTcyMDk2Mzc0MX0.tLp43_EY8eTDoSAHk-hFm8yi0ddKjZQJaiuteO5NLPY",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/order/4jgm2z1bxslyle2o5n",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["order", "4jgm2z1bxslyle2o5n"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "New order",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NTE0ODMsImV4cCI6MTcyMDk1NTA4M30.W0LyY6wR3Ag918UtANTU9VYgHgSppMg4S4jnIUcMSDI",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\r\n\"id\":\"4jgm2z1bxslyle2o5n\",\r\n\"name\":\"Thiago Freitas\",\r\n\"email\":\"ando.thiago@gmail.com\"\r\n \r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/order/",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["order", ""]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "New guest order",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTk2ODI2MzEsImV4cCI6MTcxOTY4NjIzMX0.Zns_HTn-sie0x5RbAQlUg-Syp7hWuvJnGCcC_gZsBq4",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "     {\"id\":\"null\",\r\n      \"name\": \"Thiago Ando\",\r\n      \"email\": \"ando.thiago@gmail.com\",\r\n      \"cart\": [{\"id\":\"8\",\"price\":\"74.295744\",\"quantity\":1,\"totalPrice\":\"74.295744\",\"name\":\"Dior J'adore\",\"createAt\":\"05-07-2024   12:52:40\"},{\"id\":\"7\",\"price\":105.75986400000001,\"quantity\":1,\"totalPrice\":105.75986400000001,\"name\":\"Chanel Coco Noir Eau De\",\"createAt\":\"05-07-2024   12:52:40\"}]}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/order/",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["order", ""]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "PRODUCT",
-      "item": [
-        {
-          "name": "Get all product categories",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products/categories",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products", "categories"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get all products",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get products by category",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products/bycategorie?category=mens-shoes&category=mens-watches&category=womens-dresses&category=womens-bags",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products", "bycategorie"],
-              "query": [
-                {
-                  "key": "category",
-                  "value": "mens-shoes"
-                },
-                {
-                  "key": "category",
-                  "value": "mens-watches"
-                },
-                {
-                  "key": "category",
-                  "value": "womens-dresses"
-                },
-                {
-                  "key": "category",
-                  "value": "womens-bags"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get product by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products/byid/234",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products", "byid", "234"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "New product",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\"id\":\"234\",\n\"title\":\"Super UNIQUE iPhone 334 \",\n\"description\":\"An apple mobile of the future\",\n\"price\":\"549\",\n\"discountPercentage\":\"12.96\",\n\"rating\":\"4.69\",\n\"stock\":\"94\",\n\"brand\":\"Apple\",\n\"category\":\"smartphones\",\n\"thumbnail\":\"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg\",\n\"images\":[\n    \"https://cdn.dummyjson.com/product-images/1/1.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/2.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/3.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/4.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg\"\n    ]\n} //Products must contain at leat two images\n\n\n// \"UNIQUE constraint failed: products.id\"",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete product",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/products/234",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["products", "234"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "USER",
-      "item": [
-        {
-          "name": "New user",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n     \"first_name\": \"Stephen\",\n     \"last_name\":\"King\",\n     \"email_address\":\"stephenking@lorem.com\",\n     \"password\":\"123456789\"\n}\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Email already registered: This response will be sent when more the one request is made to register a user using the same mail.\n\n    //=> Could not find user: This response will be sent when the email is not on the database.\n\n    //=> Name is wrong. Make sure to enter first an when a wrong email is passedd last name only: This is the response when more the one name is passed per field.\n\n    //=> Email is not valid: This response will be sent  when a wrong email is passed.\n\n    //=> Password must contain at least eight character: This response will be sent  when the password does not contain the minimun number of characters.    \n    \n\n    //=> \n    //{\n    //\"email_address\": \"stephenking@lorem.com\",\n    //\"first_name\": \"King\",\n    //\"last_name\": \"Stephen\",\n    //\"created_at\": \"05-07-2024   20:47:28\",\n    //\"id\": \"4jgm2z1vaqly93xm3l\",\n    //\"password\": \"$2a$12$sGhxZnAaPkuSjj38aZ2mkeAyJQ.76w6suyFUQbbmQath1OjXXo8qa\",\n    //\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjAyNjUyMTQsImV4cCI6MTcyMDI2ODgxNH0.wmeT7OS-4OPKPpO82fZk2-ugRc3yX_Oifpqm03vbDA8\"\n    //}\n    //: This is the response when a new user is created. The API send back a JSON that contain important data like the token that is valid for an hour and has to be sent in the JSON body to access some protected routes. it also contain the user ID which is used to interact to the API.  \n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/user/new",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["user", "new"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get user",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n     \"password\":\"123456789\",\n    \"email\":\"stephenking@lorem.com\"\n}\n\n // API RESPOSES:\n \n    //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n    //=> Wrong password: This is the response for wrong input.\n\n    //=> Could not find user: This is the response for wrong email",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/user/get",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["user", "get"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Change password",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU2MDksImV4cCI6MTcyMDk3OTIwOX0.f93NDGiUGslsVpGWTILPc-qMSsj45zp59G6wQ04mqZM",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"id\":\"4jgm2z1nr3lylryo11\", \n    \"password\":\"87654321\"\n \n}\n\n// API RESPOSES:\n\n  //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n\n  //=> Password must contain at least eight character: This response will be sent  when the password does not contain the minimun number of characters.\n\n  //=> Updated user detail with id xxxxx: This response will be send when user data is updated.\n\n  //=> Could not update user with id  xxxxx: This response will be send when the user id passed is incorrect.",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/user/password",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["user", "password"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete user",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzQ2NjUsImV4cCI6MTcyMDk3ODI2NX0.riTEarpUXtgGDpBgai1mH8YV-qSRbPItIul0v5JNfYE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\"id\":\"4jgm2z1m8ilylrfs4n\"}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> Could not delete user with id XXXXX: This response will be sent when a incorrect id is passed or user is not registered on the database.\r\n\r\n     //=> Deleted user with id XXXXX: This response will be sent when the user is deleted.",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/user",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["user"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Change data",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzQ4NDcsImV4cCI6MTcyMDk3ODQ0N30.nnet4nJGorjSK6our_pRa8JYn6KpX7dfEETOeQpsGUE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"id\": \"4jgm2z1nr3lylryo11\",\n    \"first_name\":\"Stephen\" , \n    \"last_name\":\"King\",\n    \"email_address\":\"stephenking@lorem.com\"\n}\n\n    // API RESPOSES: \n    \n    //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n    //=> Name is wrong. Make sure to enter first an when a wrong email is passedd last name only: This is the response when more the one name is passed per field.\n\n    //=> Email is not valid: This response will be sent  when a wrong email is passed.\n\n    //=> This email has been used by an other user or id is incorrect: This response wil be send when an email has already been used for another user or if the email remains the same and the user id is changed (incorrect).\n\n    //=> Updated user detail with id xxxxx: This response will be send when user data is updated.\n\n    //=> Could not update user with id  xxxxx: This response will be send when the user email is chaged and has not been used by another user but the user id passed is incorrect.",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://next-store-api-62m2.onrender.com/user/",
-              "protocol": "https",
-              "host": ["next-store-api-62m2", "onrender", "com"],
-              "path": ["user", ""]
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "729ade8e-ef02-4eb9-8a1a-ec0b35051405",
+		"name": "Store-API-Solo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28441837"
+	},
+	"item": [
+		{
+			"name": "CART",
+			"item": [
+				{
+					"name": "Get cart purchased",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjkxODQ4OTUsImV4cCI6MTcyOTE4ODQ5NX0._hr2DpVaYoCe_WGbZfB2Jz7VbXUhqNh26VUBCDCUn8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart/purchased/params?user_id=4jgm2z1bxslyle2o5n&cart_id=05-07-2024h15:37:29",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart",
+								"purchased",
+								"params"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "4jgm2z1bxslyle2o5n"
+								},
+								{
+									"key": "cart_id",
+									"value": "05-07-2024h15:37:29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get cart not purchased",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NDMxNjUsImV4cCI6MTcyMDk0Njc2NX0.5ju20TQvVrv3gqb2Nd1M1RrcHSgi1vpyOooosaQaTsw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart/4jgm2z1nr3lylryo11",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart",
+								"4jgm2z1nr3lylryo11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create cart with first item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjkxNzUwNjcsImV4cCI6MTcyOTE3ODY2N30.jlcZZWNmjgAy26RpNeFjOKJ7xIONFguRAp0yzo8Bb7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"user_id\":\"4jgm2z1nr3lylryo11\",\r\n\"item\":{\r\n        \"id\": \"8\",\r\n        \"quantity\": \"2\",\r\n        \"createAt\": \"05-07-2024h15:37:29\", //This is the ID of the cart in the database\r\n        \"price\":\"129.99\",\r\n        \"name\":\"Chanel Coco Noir Eau De\"\r\n    }\r\n}\r\n\r\n// EACH PRODUCT FILL ONE ROW ON THE TABLE <CART>. THEREFORE, FOR EVERY CHOSEN PRODUCT ONE REQUEST IS MADE TO THE <API>. THE SECOND PRODUCT WOULD BE REQUESTED AS FOLLOWS:\r\n\r\n// {\r\n\r\n// \"id\":\"4jgm2z1hr0lwjdor0t\",\r\n\r\n//     {\r\n//         \"id\": \"5\",\r\n//         \"quantity\": \"2\",\r\n//         \"createAt\": \"10-04-2024   14:37:55\",\r\n//         \"price\":\"59\",\r\n//         \"name\":\"iPhone 9\"\r\n//     }\r\n// }\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> There is no pruduct with id: xxxx or User with id: xxxx: This response will be sent if a cart with a product id or a user id that does not contain on the database.\r\n\r\n    //=> Cart created successufuly: This response will be sent when cart is created.\r\n    \r\n    \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adding second item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"user_id\":\"4jgm2z1nr3lylryo11\",\r\n\r\n\"item\":{\r\n        \"id\": \"9\",\r\n        \"quantity\": \"2\",\r\n        \"createAt\": \"05-07-2024h15:37:29\",\r\n        \"price\":\"49.99\",\r\n        \"name\":\"Calvin Klein CK One\"\r\n    }\r\n}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> There is no pruduct with id: xxxx or User with id: xxxx: This response will be sent if a cart with a product id or a user id that does not contain on the database.\r\n\r\n    //=> Cart created successufuly: This response will be sent when cart is created.\r\n    \r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update item quantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"cart\":{\r\n    \"user_id\":\"4jgm2z1bxslyle2o5n\",\r\n     \"item_id\": \"9\",\r\n     \"quantity\": 454\r\n      \r\n    }\r\n}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> Not found: This response will be sent if product id or user id is not found on the database.\r\n\r\n    //=> Updated item with id XXXX: This response will be sent when cart quantity is updated.\r\n    \r\n    \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\":\"4jgm2z1bxslyle2o5n\"\n}\n\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Cart deleted: This response will be sent when cart successfuly deleted.\n\n    //=> Not found: This response will be sent if product id or user id is not found on the database.    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete item from cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart\":{\n        \"user_id\":\"4jgm2z1ce9m2byuu2g\",\n        \"item_id\":\"9\"\n    }\n}\n\n\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Cart deleted: This response will be sent when a product is successfuly deleted from the cart.\n\n    //=> Not found: This response will be sent if product id or user id is not found on the database.    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/cart/item",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"cart",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ADDRESS",
+			"item": [
+				{
+					"name": "Register address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"4jgm2z1nr3lylryo11\",\r\n    \"line_one\":\"356, ashgrove\", \r\n    \"line_two\":\"castleknock\",\r\n    \"town_city\":\"dublin 24\", \r\n    \"constry_state\":\"Dublin\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/add",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/add/4jgm2z1nr3lylryo11",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"add",
+								"4jgm2z1nr3lylryo11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change user Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU3MjksImV4cCI6MTcyMDk3OTMyOX0.eLBVmfahE4DcI64-g0OXEzHQZj7jgxZqSsQzdaCL8NM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"4jgm2z1nr3lylryo11\",\n        \"line_one\": \"221 baiepau\",\n        \"line_two\": \"Vl. norma\",\n        \"town_city\": \"São Paulo\",\n        \"constry_state\": \"SP\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/add",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ORDER",
+			"item": [
+				{
+					"name": "Get Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NjAxNDEsImV4cCI6MTcyMDk2Mzc0MX0.tLp43_EY8eTDoSAHk-hFm8yi0ddKjZQJaiuteO5NLPY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/order/4jgm2z1bxslyle2o5n",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"order",
+								"4jgm2z1bxslyle2o5n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NTE0ODMsImV4cCI6MTcyMDk1NTA4M30.W0LyY6wR3Ag918UtANTU9VYgHgSppMg4S4jnIUcMSDI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":\"4jgm2z11gfjlyrfbmsl\",\r\n\"first_name\":\"Stephen\",\r\n\"last_name\":\"King\",\r\n\"email_address\":\"stephenking@lorem.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/order/",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New guest order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTk2ODI2MzEsImV4cCI6MTcxOTY4NjIzMX0.Zns_HTn-sie0x5RbAQlUg-Syp7hWuvJnGCcC_gZsBq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "     {\r\n\"id\":\"guest\",\r\n\"first_name\":\"Stephen\",\r\n\"last_name\":\"King\",\r\n\"email_address\":\"stephenking@lorem.com\",\r\n      \"cart\": [{\"id\":\"8\",\"price\":\"74.295744\",\"quantity\":1,\"totalPrice\":\"74.295744\",\"name\":\"Dior J'adore\",\"createAt\":\"05-07-2024   12:52:40\"},{\"id\":\"7\",\"price\":105.75986400000001,\"quantity\":1,\"totalPrice\":105.75986400000001,\"name\":\"Chanel Coco Noir Eau De\",\"createAt\":\"05-07-2024   12:52:40\"}]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/order/",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "Get all product categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products/categories",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get products by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products/bycategories?category=mens-shoes&category=mens-watches&category=womens-dresses&category=womens-bags",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products",
+								"bycategories"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "mens-shoes"
+								},
+								{
+									"key": "category",
+									"value": "mens-watches"
+								},
+								{
+									"key": "category",
+									"value": "womens-dresses"
+								},
+								{
+									"key": "category",
+									"value": "womens-bags"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products/byid/234",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products",
+								"byid",
+								"234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\":\"234\",\n\"title\":\"Super UNIQUE iPhone 334 \",\n\"description\":\"An apple mobile of the future\",\n\"price\":\"549\",\n\"discountPercentage\":\"12.96\",\n\"rating\":\"4.69\",\n\"stock\":\"94\",\n\"brand\":\"Apple\",\n\"category\":\"smartphones\",\n\"thumbnail\":\"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg\",\n\"images\":[\n    \"https://cdn.dummyjson.com/product-images/1/1.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/2.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/3.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/4.jpg\",\n    \"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg\"\n    ]\n} //Products must contain at leat two images\n\n\n// \"UNIQUE constraint failed: products.id\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzA0NDYsImV4cCI6MTcyMDk3NDA0Nn0.f-uCnQAlnP1moYDCWyo0SpbdJk5EtUMO2v2Dv1hehZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"234\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/products",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "New user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"first_name\": \"Stephen\",\n     \"last_name\":\"King\",\n     \"email_address\":\"stephenking@lorem.com\",\n     \"password\":\"123456789\"\n}\n// API RESPOSES:\n \n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\n\n    //=> Email already registered: This response will be sent when more the one request is made to register a user using the same mail.\n\n    //=> Could not find user: This response will be sent when the email is not on the database.\n\n    //=> Name is wrong. Make sure to enter first an when a wrong email is passedd last name only: This is the response when more the one name is passed per field.\n\n    //=> Email is not valid: This response will be sent  when a wrong email is passed.\n\n    //=> Password must contain at least eight character: This response will be sent  when the password does not contain the minimun number of characters.    \n    \n\n    //=> \n    //{\n    //\"email_address\": \"stephenking@lorem.com\",\n    //\"first_name\": \"King\",\n    //\"last_name\": \"Stephen\",\n    //\"created_at\": \"05-07-2024   20:47:28\",\n    //\"id\": \"4jgm2z1vaqly93xm3l\",\n    //\"password\": \"$2a$12$sGhxZnAaPkuSjj38aZ2mkeAyJQ.76w6suyFUQbbmQath1OjXXo8qa\",\n    //\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjAyNjUyMTQsImV4cCI6MTcyMDI2ODgxNH0.wmeT7OS-4OPKPpO82fZk2-ugRc3yX_Oifpqm03vbDA8\"\n    //}\n    //: This is the response when a new user is created. The API send back a JSON that contain important data like the token that is valid for an hour and has to be sent in the JSON body to access some protected routes. it also contain the user ID which is used to interact to the API.  \n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/user/new",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"user",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"password\":\"123456789\",\n    \"email\":\"stephenking@lorem.com\"\n}\n\n // API RESPOSES:\n \n    //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n    //=> Wrong password: This is the response for wrong input.\n\n    //=> Could not find user: This is the response for wrong email",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/user/get",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"user",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzU2MDksImV4cCI6MTcyMDk3OTIwOX0.f93NDGiUGslsVpGWTILPc-qMSsj45zp59G6wQ04mqZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"4jgm2z1nr3lylryo11\", \n    \"password\":\"87654321\"\n \n}\n\n// API RESPOSES:\n\n  //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n\n  //=> Password must contain at least eight character: This response will be sent  when the password does not contain the minimun number of characters.\n\n  //=> Updated user detail with id xxxxx: This response will be send when user data is updated.\n\n  //=> Could not update user with id  xxxxx: This response will be send when the user id passed is incorrect.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/user/password",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"user",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzQ2NjUsImV4cCI6MTcyMDk3ODI2NX0.riTEarpUXtgGDpBgai1mH8YV-qSRbPItIul0v5JNfYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"4jgm2z1m8ilylrfs4n\"}\r\n\r\n\r\n// API RESPOSES:\r\n \r\n    //=> Incomplete Body: This response wil be sent when thre is any JSON row missing.\r\n\r\n    //=> Could not delete user with id XXXXX: This response will be sent when a incorrect id is passed or user is not registered on the database.\r\n\r\n     //=> Deleted user with id XXXXX: This response will be sent when the user is deleted.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/user",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjA5NzQ4NDcsImV4cCI6MTcyMDk3ODQ0N30.nnet4nJGorjSK6our_pRa8JYn6KpX7dfEETOeQpsGUE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"4jgm2z1nr3lylryo11\",\n    \"first_name\":\"Stephen\" , \n    \"last_name\":\"King\",\n    \"email_address\":\"stephenking@lorem.com\"\n}\n\n    // API RESPOSES: \n    \n    //=> Incomplete Body: This response wil be send when thre is any JSON row missing.\n\n    //=> Name is wrong. Make sure to enter first an when a wrong email is passedd last name only: This is the response when more the one name is passed per field.\n\n    //=> Email is not valid: This response will be sent  when a wrong email is passed.\n\n    //=> This email has been used by an other user or id is incorrect: This response wil be send when an email has already been used for another user or if the email remains the same and the user id is changed (incorrect).\n\n    //=> Updated user detail with id xxxxx: This response will be send when user data is updated.\n\n    //=> Could not update user with id  xxxxx: This response will be send when the user email is chaged and has not been used by another user but the user id passed is incorrect.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://next-store-api-62m2.onrender.com/user/",
+							"protocol": "https",
+							"host": [
+								"next-store-api-62m2",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }
